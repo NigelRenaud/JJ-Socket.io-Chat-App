@@ -10,10 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NigelRenaud/Project-4.git"
+    "url": "git+https://github.com/NigelRenaud/Project-4.git"
   },
-  "author": "Darren N",
+    "author": "NigelRenaud",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NigelRenaud/Project-4/issues"
+  },
+  "homepage": "https://github.com/NigelRenaud/Project-4#readme",
   "dependencies": {
     "async": "latest",
     "basic-auth-connect": "latest",

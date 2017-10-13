@@ -5,7 +5,7 @@ const http = require('http').Server(app);
 // importing the socket that allows us to get chat messages instantly
 const io = require('socket.io')(http);
 // set the port, either from an environmental variable or manually
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Chat actions below
 io.on('connection', (socket) => {
@@ -31,6 +31,11 @@ http.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
+// // Instead of page found, send down the react app to handle any pages.
+// app.get('*', (req, res) => {
+//   // Send index.html file which is the entire react app.
+//   res.sendFile(`${__dirname}/client/public/index.html`);
+// });
 
 // index route
 app.get('/', (req, res) => {

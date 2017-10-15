@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import io from 'socket.io-client';
 
 class Chatroom extends Component {
   render() {
@@ -7,7 +8,7 @@ class Chatroom extends Component {
       <div>
       <ul id="messages"></ul>
     <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+      <input id="m" autoComplete="off" /><button>Send</button>
     </form>
       </div>
 

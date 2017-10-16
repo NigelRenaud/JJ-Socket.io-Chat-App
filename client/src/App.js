@@ -54,13 +54,12 @@ logout = ()=> {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <div className="container">
-        {!user ?
+       {/* {!user ? */}
         <LoginForm socket={socket} setUser={this.setUser} />
-        :
+
         <Chatroom socket={socket} user={user} logout={this.logout} />
-         }
-        }
-        }
+
+
         </div>
       </div>
     );

@@ -10,6 +10,17 @@ let connectedUser = {};
 module.exports = function(socket){
 console.log("Socket Id:" + socket.id);
 
+socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+
+     socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+
+socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+
 // Verify Username
 socket.on(VERIFY_USER, (newUser, callback) =>{
     if(!isUser(connectedUsers, newUser)){
@@ -31,24 +42,25 @@ socket.on(USER_CONNECTED, (user) => {
 // User disconnets
 
 // User logout
+})
 }
 
-// Adds user to existing list
-addUser(userList, user) =>{
-  let newList = Object.assign({}, userList)
-  newList[user.name] = user
-  return newList
-}
+// // Adds user to existing list
+// addUser(userList, user) =>{
+//   let newList = Object.assign({}, userList)
+//   newList[user.name] = user
+//   return newList
+// }
 
-// Removes user from the existing list
-removeUser(userList, username) =>{
-  let newList = Object.assign({}, userList)
-  delete newList[username]
-  return newList
-}
+// // Removes user from the existing list
+// removeUser(userList, username) =>{
+//   let newList = Object.assign({}, userList)
+//   delete newList[username]
+//   return newList
+// }
 
-// Checks if user is apart of the existing list.
-isUser(userList, username) =>{
-  return username in userList
-}
+// // Checks if user is apart of the existing list.
+// isUser(userList, username) =>{
+//   return username in userList
+// }
 

@@ -14,7 +14,7 @@ const path = require('path');
 // const io = module.exports.io = require('socket.io')(app)
 
 
-const socketApi = require('./socket.api');
+// const socketApi = require('./socket.api');
 
 
 // Chat actions below
@@ -23,24 +23,41 @@ io.on('connection', (socket) => {
   // When a user joins the chat log it.
   console.log('a user connected');
 
-  // When a user sends message, send it to the whole room
-  // Console log the message that was sent
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-    console.log('message: ' + msg);
+let nicknames=[];
+
+        socket.on('new user',function(name,callback)
+        {
+            // if the newly entered username already exists in array return false,othersise push it into the array
+           if(nicknames.indexOf(name)!=-1) {
+               callback(false);
+           }else {
+               callback(true);
+               socket.nickname=name;
+               nicknames.push(socket.nickname);
+               io.sockets.emit('usernames',nicknames);
+               updateNicknames();
+               console.log('new user name: ' + socket.nickname);
+           }
+        });
+
+          function updateNicknames(){
+            io.sockets.emit('usernames', nicknames);
+            console.log('updateNicknames ran: ' + nicknames);
+        }
+// Sends message to chat
+        socket.on('chat message', function(message){
+            io.emit('chat message', {nick: socket.nickname, msg: message});
+            console.log(message);
   });
 
-  socket.on('send-nickname', function(nickname) {
-    socket.nickname = nickname;
-    users.push(socket.nickname);
-    console.log(users);
-})
+// log when a user disconnects
+        socket.on('disconnect', function(message){
+            if(!socket.nickname) return;
+            nicknames.splice(nicknames.indexOf(socket.nickname), 1);
+            updateNicknames();
+        });
 
 
-  // log when a user disconnects
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
 });
 
 

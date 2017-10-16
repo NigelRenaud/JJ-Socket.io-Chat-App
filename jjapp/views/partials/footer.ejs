@@ -17,21 +17,70 @@
     $('#form').addClass('animated slideInUp');
 
 });
-
   $(function () {
-    var socket = io();
+    const socket = io();
     $('form').submit(function(){
       socket.emit('chat message', $('#m').val());
       $('#m').val('');
       return false;
     });
       // when there is a new message, append it to the chat screen
-      socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').addClass('animated fadeInUp').text(msg));
-      $('#messages').scrollTop($('#messages')[0].scrollHeight);
+      socket.on('chat message', function(message){
+      $('#messages').append($('<li>').addClass('animated fadeInUp').text(message.nick +" "+ message.msg));
+      $('#messages').scrollTop($('#messages')[0]);
     });
 
   });
+
+  $(function () {
+      const socket = io();
+        const $nickForm=$('#setNick');
+        const $nickError=$('#nickError');
+        const $nickBox=$('#nickname');
+        const $users = $('#users');
+        // const $messageForm=$('#send-message');
+        // const $messageBox=$('#message');
+        // const $chat=$('#chat');
+
+
+         /* submits nickname and redirects to chat room if name is available. */
+        $nickForm.submit(function(e){
+            e.preventDefault();
+            socket.emit('new user',$nickBox.val(),function(name){
+              console.log('jquery $nickForm Value: ' + name);
+                if(name){
+                  // console.log(' from form: '+ $nickBox.val());
+                    $nickBox.val('');
+                    window.location.href = "/app";
+                }else {
+                    $nickError.html('Username already in use. Try another name.');
+                }
+                });
+
+            });
+
+            //List of users
+        socket.on('usernames', function(nicknames){
+            let html = '';
+            for(i=0; i < nicknames.length; i++){
+                html+= nicknames[i] + '<br/>'
+                }
+            $users.html(html);
+            //$showName.append(html);
+        });
+
+
+        {/*$messageForm.submit(function(e){
+            e.preventDefault();
+            socket.emit('send message', $messageBox.val());
+            $messageBox.val('');
+        });
+
+        socket.on('new message', function(message){
+            $chat.append('<span class="glyphicon glyphicon-user"></span>'+"   "+'<b>' + message.nick +  ' : </b>'+ message.msg + "<br/>");
+        }); */}
+     });
+    </script>
 </script>
 </body>
 </html>

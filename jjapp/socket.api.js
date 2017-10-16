@@ -1,49 +1,49 @@
-const io = require('./server.js').io
+// const io = require('./server.js').io
 
-//import events
-const { VERIFY_USER, USER_CONNECTED, LOGOUT } = require('../client/src/Events');
+// //import events
+// const { VERIFY_USER, USER_CONNECTED, LOGOUT } = require('../client/src/Events');
 
-const {createUser, createMessage, createChat } = require('../client/src/Factories');
+// const {createUser, createMessage, createChat } = require('../client/src/Factories');
 
-let connectedUser = {};
+// let connectedUser = {};
 
-module.exports = function(socket){
-console.log("Socket Id:" + socket.id);
+// module.exports = function(socket){
+// console.log("Socket Id:" + socket.id);
 
-socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
+// socket.on('chat message', function(msg){
+//     console.log('message: ' + msg);
 
-     socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
+//      socket.on('chat message', function(msg){
+//     io.emit('chat message', msg);
+//   });
 
-socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
+// socket.on('disconnect', function(){
+//     console.log('user disconnected');
+//   });
 
-// Verify Username
-socket.on(VERIFY_USER, (newUser, callback) =>{
-    if(!isUser(connectedUsers, newUser)){
-      callback({isUser:false, user:createUser({name:newUser})})
+// // Verify Username
+// socket.on(VERIFY_USER, (newUser, callback) =>{
+//     if(!isUser(connectedUsers, newUser)){
+//       callback({isUser:false, user:createUser({name:newUser})})
 
-    }else{
-      callback({isUser:true})
-    }
-  })
+//     }else{
+//       callback({isUser:true})
+//     }
+//   })
 
-// User connects with a username
-socket.on(USER_CONNECTED, (user) => {
-  connectedUsers = addUser(connectedUsers, user)
-  socket.user = user;
-  io.emit(USER_CONNECTED, connectedusers)
-  console.log(connectedUsers);
-})
+// // User connects with a username
+// socket.on(USER_CONNECTED, (user) => {
+//   connectedUsers = addUser(connectedUsers, user)
+//   socket.user = user;
+//   io.emit(USER_CONNECTED, connectedusers)
+//   console.log(connectedUsers);
+// })
 
-// User disconnets
+// // User disconnets
 
-// User logout
-})
-}
+// // User logout
+// })
+// }
 
 // // Adds user to existing list
 // addUser(userList, user) =>{

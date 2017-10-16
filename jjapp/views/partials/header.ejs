@@ -3,29 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ready Freddie's Cookies</title>
+  <title>J & J</title>
+  <!-- animated classes -->
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  <!-- bootstrap general styling -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- socket.io for the chat connection -->
 <script src="/socket.io/socket.io.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+<!-- custom css -->
 <link rel="stylesheet" type="text/css" href="/css/style.css">
+
 </head>
 <body>
   <header>
 
-<div class="jumbotron">
-  <h1 style="opacity: 0.99">Jenkins And Jonez</h1>
+<div class="jumbotron" id="header">
+  <h2>JENKINS & JONEZ</h2>
 </div>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/app">Accounts</a></li>
-      <li><a href="https://git.generalassemb.ly/Darren/">Git Hub</a></li>
-    </ul>
-  </div>
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="https://itunes.apple.com/us/podcast/jenkins-jonez-podcast/id1018701693?mt=2">Podcast</a></li>
+                <li><a href="https://git.generalassemb.ly/Darren/">Git Hub</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
   </header>

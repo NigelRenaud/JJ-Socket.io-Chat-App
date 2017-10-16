@@ -1,0 +1,67 @@
+/** { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; } */
+html, body {
+  height: 100%;
+  background:   #7998b4;
+
+}
+
+#header {
+  background-image: url('../images/jjheader.png');
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  vertical-align: text-bottom;
+  text-align: center;
+
+
+}
+h1, p, a {
+  color: white;
+}
+
+.navbar {
+  color: white;
+  background-color:           #7998b4;
+}
+
+.navbar-default li, a {
+  color: white;
+  font-size: 20px
+}
+
+#form {
+  padding: 3px;
+  width: 100%;
+}
+#m {
+  border: 0px solid #009688;
+  padding: 10px;
+  width: 90%;
+  margin-right: .5%;
+}
+#button {
+  width: 9%;
+  background: rgb(130, 224, 255);
+  border: none;
+  padding: 10px;
+
+}
+#messages {
+  list-style-type: none; margin: 0; padding: 0;
+}
+#messages li {
+  padding: 5px 10px;
+}
+#messages li:nth-child(odd) {
+  background:   #cceae7;
+}
+.well {
+  overflow: auto;
+  box-sizing: border-box;
+  height: 200px;
+  background-color:   #e8dc6b;
+  border-radius: 0px;
+  border: none;
+}

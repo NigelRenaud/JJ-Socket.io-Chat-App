@@ -30,6 +30,12 @@ io.on('connection', (socket) => {
     console.log('message: ' + msg);
   });
 
+  socket.on('send-nickname', function(nickname) {
+    socket.nickname = nickname;
+    users.push(socket.nickname);
+    console.log(users);
+})
+
 
   // log when a user disconnects
   socket.on('disconnect', function(){

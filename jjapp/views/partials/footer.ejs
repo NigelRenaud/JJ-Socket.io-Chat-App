@@ -16,21 +16,7 @@
     $('.well').addClass('animated slideInLeft');
     $('#form').addClass('animated slideInUp');
 
-});
-  $(function () {
-    const socket = io();
-    $('form').submit(function(){
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-    });
-      // when there is a new message, append it to the chat screen
-      socket.on('chat message', function(message){
-      $('#messages').append($('<li>').addClass('animated fadeInUp').text(message.nick +" "+ message.msg));
-      $('#messages').scrollTop($('#messages')[0]);
-    });
 
-  });
 
   $(function () {
       const socket = io();
@@ -43,15 +29,29 @@
         // const $chat=$('#chat');
 
 
+
+ $('form').submit(function(e){
+  e.preventDefault();
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+      // when there is a new message, append it to the chat screen
+      socket.on('chat message', function(message){
+      $('#messages').append($('<li>').addClass('animated fadeInUp').text(message.nick +": "+ message.msg));
+      $('#messages').scrollTop($('#messages')[0]);
+    });
+
          /* submits nickname and redirects to chat room if name is available. */
         $nickForm.submit(function(e){
             e.preventDefault();
             socket.emit('new user',$nickBox.val(),function(name){
               console.log('jquery $nickForm Value: ' + name);
                 if(name){
-                  // console.log(' from form: '+ $nickBox.val());
+                  $('#nickWrap').hide();
+                  $('#contentWrap').show();
                     $nickBox.val('');
-                    window.location.href = "/app";
+
                 }else {
                     $nickError.html('Username already in use. Try another name.');
                 }
@@ -65,7 +65,7 @@
             for(i=0; i < nicknames.length; i++){
                 html+= nicknames[i] + '<br/>'
                 }
-            $users.html(html);
+            $users.append(html);
             //$showName.append(html);
         });
 
@@ -80,6 +80,7 @@
             $chat.append('<span class="glyphicon glyphicon-user"></span>'+"   "+'<b>' + message.nick +  ' : </b>'+ message.msg + "<br/>");
         }); */}
      });
+});
     </script>
 </script>
 </body>

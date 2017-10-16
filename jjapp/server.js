@@ -34,13 +34,15 @@ let nicknames=[];
                callback(true);
                socket.nickname=name;
                nicknames.push(socket.nickname);
-               socket.emit('usernames',nicknames);
+               io.sockets.emit('usernames',nicknames);
                updateNicknames();
+               console.log('new user name: ' + socket.nickname);
            }
         });
 
           function updateNicknames(){
-            socket.emit('usernames', nicknames);
+            io.sockets.emit('usernames', nicknames);
+            console.log('updateNicknames ran: ' + nicknames);
         }
 // Sends message to chat
         socket.on('chat message', function(message){

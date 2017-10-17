@@ -1,39 +1,52 @@
   <% include ./partials/header %>
 
 <h4>Chatroom</h4>
-<div ide="nickWrap">
-<form id="setNick">
-        <div>
-          <div class="inner-addon left-addon">
-            <i class="glyphicon glyphicon-user"></i>
-            <input id="nickname" autocomplete="off" placeholder="Username"/>
-            <button id="button">Send</button>
 
-        </div>
-</form>
-</div>
+<div class="container">
+ <div class="row">
+    <div class="col-xs-12">
+      <div class= id="nickWrap">
+              <form id="setNick">
+                  <div class="container">
+                    <div class="inner-addon left-addon">
+                      <i class="glyphicon glyphicon-user"></i>
+                      <input id="nickname" autocomplete="off" placeholder="Username"/>
+                      <button class="btn btn-default" id="button">Send</button>
 
-<div id="chatroomWrap">
-  <div class="well well-lg">
-    <ul id="messages"></ul>
-  </div>
-      <div id="form">
-        <form action="">
-          <input id="m" autocomplete="off" />
-          <button id="button">Send</button>
-        </form>
+                    </div>
+                  </div>
+              </form>
       </div>
+    </div>
   </div>
-  <br>
 
-   <div>
-      <div class="panel panel-default">
-        <div class="panel-heading"><center>Users in Room</center>
-          </div>
-            <div class="panel-body" id="users">
+  <div class="row">
+    <div class="col-md-8">
+      <div id="contentWrap">
+          <div id="chatroomWrap">
+            <div class="well">
+              <ul id="messages"></ul>
+            </div>
+                <div id="form">
+                  <form action="">
+                    <input id="m" autocomplete="off" />
+                    <button class="btn btn-default" id="button">Send</button>
+                  </form>
+                </div>
+            </div>
+      </div>
+    </div>
+             <div class="col-md-4">
+                <div class="panel panel-default" id="userList">
+                  <div class="panel-heading"><center>Users in Room</center>
+                    </div>
+                      <div class="panel-body" id="users">
+                      </div>
+                </div>
             </div>
       </div>
   </div>
+
 
 
   <% include ./partials/footer %>

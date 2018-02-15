@@ -16,14 +16,13 @@ const path = require('path');
 
 // const socketApi = require('./socket.api');
 
-
+let nicknames=[];
 // Chat actions below
 // io.on('connection', socketApi);
 io.on('connection', (socket) => {
   // When a user joins the chat log it.
   console.log('a user connected');
 
-let nicknames=[];
 
         socket.on('new user',function(name,callback)
         {
@@ -35,7 +34,7 @@ let nicknames=[];
                socket.nickname=name;
                nicknames.push(socket.nickname);
                io.sockets.emit('usernames',nicknames);
-               updateNicknames();
+               // updateNicknames();
                console.log('new user name: ' + socket.nickname);
            }
         });

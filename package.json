@@ -25,19 +25,19 @@
   },
   "homepage": "https://github.com/NigelRenaud/Project-4#readme",
   "dependencies": {
-    "animate.css": "^3.5.2",
-    "body-parser": "^1.18.2",
-    "ejs": "^2.5.7",
-    "express": "^4.16.2",
+    "animate.css": "^3.7.0",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
     "method-override": "^2.3.10",
     "morgan": "^1.9.0",
-    "nodemon": "^1.12.1",
+    "nodemon": "^1.18.4",
     "parth": "^4.2.3",
     "path": "^0.12.7",
-    "pg-promise": "^7.0.1",
-    "socket.io": "^2.0.3"
+    "pg-promise": "^7.5.4",
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0"
+    "concurrently": "^3.6.1"
   }
 }

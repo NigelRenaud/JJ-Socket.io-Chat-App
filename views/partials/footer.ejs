@@ -2,7 +2,7 @@
    <div class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
       <p class="navbar-text pull-left">© 2017 - Site Built By Darren N.
-           <a href="https://generalassemb.ly/" target="_blank" >General Assembly</a>
+           //<a href="https:generalassemb.ly/" target="_blank">General Assembly</a>
       </p>
 
     </div>
@@ -12,9 +12,11 @@
 <script>
   $( document ).ready(function() {
     console.log( "ready!" );
-    $('h1').addClass('animated flipInX')
+    $('h4').addClass('animated flipInX');
+    $('#setNick').addClass('animated slideInLeft');
     $('.well').addClass('animated slideInLeft');
     $('#form').addClass('animated slideInUp');
+    $('#userList').addClass('animated slideInRight');
 
 
 
@@ -23,14 +25,14 @@
         const $nickForm=$('#setNick');
         const $nickError=$('#nickError');
         const $nickBox=$('#nickname');
-        const $users = $('#users');
+        const $users=$('#users');
         // const $messageForm=$('#send-message');
         // const $messageBox=$('#message');
         // const $chat=$('#chat');
 
 
 
- $('form').submit(function(e){
+ $('#sendForm').submit(function(e){
   e.preventDefault();
       socket.emit('chat message', $('#m').val());
       $('#m').val('');

@@ -12,5 +12,5 @@
 ### Take a look at the app [HERE](https://jenkinsandjonez.herokuapp.com/) on Heroku. 
 ---
 ### Screenshot: 
-![Screenshot of Chat App][jjchat]
+![JJ Chat Screenshot](./public/images/jjchat.png)]
 #### By Darren N. 2018

@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
 
         socket.on('new user',function(name,callback)
         {
-            // if the newly entered username already exists in array return false,othersise push it into the array.
+            // if the newly entered username already exists in array return false,othersise push it into the array...
            if(nicknames.indexOf(name)!=-1) {
                callback(false);
            }else {
